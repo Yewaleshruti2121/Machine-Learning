@@ -1,0 +1,74 @@
+ Spam Message Classifier with Streamlit
+
+This is a machine learning web application that classifies text messages as **Spam** or **Ham** (not spam). The model is trained using **TF-IDF vectorization** and a **Multinomial Naive Bayes** algorithm. The user interface is built using **Streamlit**, making it simple and interactive.
+
+ Problem Statement
+
+Unsolicited spam messages are a growing concern, especially with the rise of SMS and messaging apps. This project aims to develop a machine learning model that can classify a message as **spam** or **not spam** based on its text content. The goal is to deploy it in a lightweight, real-time web app to demonstrate the power of natural language processing (NLP).
+
+Dataset Used
+
+**SMS Spam Collection Dataset**
+
+- Source: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection) or [Kaggle](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset)
+- Consists of 5,574 SMS messages labeled as `spam` or `ham`.
+
+ Techniques and Tools Used
+
+Natural Language Processing:
+- Text cleaning (lowercasing, removing punctuation, stopwords, etc.)
+- Tokenization
+- TF-IDF Vectorization (`TfidfVectorizer` from `sklearn`)
+Machine Learning:
+- **Multinomial Naive Bayes** for classification
+- Train-test split using `train_test_split`
+- Model evaluation using:
+  - Accuracy
+  - Confusion matrix
+  - Classification report
+ Deployment:
+- Streamlit (Python framework to deploy ML models as web apps)
+- Pickle for model and vectorizer serialization
+
+ Files in this Repository
+
+| File Name | Description |
+|-----------|-------------|
+| `app.py` | Main Streamlit app to run the spam detection web interface |
+| `spam_model.pkl` | Trained Multinomial Naive Bayes model |
+| `vectorizer.pkl` | TF-IDF vectorizer used for transforming input text |
+| `README.md` | Project overview and instructions |
+| `requirements.txt` *(optional)* | Python packages required to run the app |
+
+---
+
+ How to Run the App
+
+ Step 1: Clone the repository or download ZIP
+
+
+Step 2: Navigate to project directory
+```bash
+cd spam-detector
+Step 3:
+pip install streamlit scikit-learn pandas numpy
+Step$
+streamlit run app.py
+
+
+ Model Logic
+TF-IDF: Converts text data into numerical format by giving more weight to unique words and reducing the impact of common ones.
+
+MultinomialNB: A simple yet effective algorithm for text classification, especially suited for word frequency data.
+
+ Model Performance
+Accuracy: ~97–99% (depending on data split)
+
+Low false positives and false negatives due to effective preprocessing and model choice.
+Future Improvements
+Add support for multiple languages
+
+Improve preprocessing with lemmatization
+
+Deploy on cloud using Heroku, AWS, or Streamlit Cloud
+
